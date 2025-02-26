@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TORI - Demande de prêt en ligne</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding-top: 60px; /* Pour compenser l'en-tête fixe */
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #222;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff !important;
+        }
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #007bff !important;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .loan-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .loan-option {
+            flex: 1 1 200px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .loan-option:hover,
+        .loan-option.selected {
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+        }
+        .loan-option i {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .price-calculator {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .total-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+        }
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 768px) {
+            .loan-option {
+                flex: 1 1 100%;
+            }
+            .form-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre de menu fixe -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">RAIFFEISEN BANK</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="acceuil.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Suivi de prêt</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section du formulaire -->
+    <main>
+        <div class="container my-5">
+            <h1 class="text-center mb-4">Finalisez votre demande de prêt</h1>
+            <div class="form-container">
+                <form id="loanForm">
+                    <div class="form-group">
+                        <label for="loanType"><i class="fas fa-hand-holding-usd"></i> Type de prêt :</label>
+                        <div class="loan-options">
+                            <div class="loan-option" data-loan-type="personnel">
+                                <i class="fas fa-user"></i>
+                                <h3>Prêt personnel</h3>
+                                <p>Taux d'intérêt : 5%</p>
+                            </div>
+                            <div class="loan-option" data-loan-type="immobilier">
+                                <i class="fas fa-home"></i>
+                                <h3>Prêt immobilier</h3>
+                                <p>Taux d'intérêt : 3%</p>
+                            </div>
+                            <div class="loan-option" data-loan-type="auto">
+                                <i class="fas fa-car"></i>
+                                <h3>Prêt auto</h3>
+                                <p>Taux d'intérêt : 4%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loanAmount"><i class="fas fa-euro-sign"></i> Montant du prêt (€) :</label>
+                        <input type="number" id="loanAmount" name="loanAmount" min="1000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loanDuration"><i class="fas fa-calendar-alt"></i> Durée du prêt (années) :</label>
+                        <input type="number" id="loanDuration" name="loanDuration" min="1" max="30" required>
+                    </div>
+                    <div class="price-calculator">
+                        <h3>Estimation des mensualités</h3>
+                        <p>Mensualité : <span class="total-price" id="monthlyPayment">0€</span></p>
+                    </div>
+                    <input type="hidden" id="selectedLoanType" name="selectedLoanType" value="">
+                    <button type="submit" class="cta-button">Valider la demande</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loanOptions = document.querySelectorAll('.loan-option');
+            const loanAmountInput = document.getElementById('loanAmount');
+            const loanDurationInput = document.getElementById('loanDuration');
+            const monthlyPaymentElement = document.getElementById('monthlyPayment');
+            const loanForm = document.getElementById('loanForm');
+            const selectedLoanTypeInput = document.getElementById('selectedLoanType');
+
+            let selectedLoanType = null;
+            let interestRate = 0;
+
+            loanOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    loanOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedLoanType = this.dataset.loanType;
+                    selectedLoanTypeInput.value = selectedLoanType;
+                    interestRate = getInterestRate(selectedLoanType);
+                    calculateMonthlyPayment();
+                });
+            });
+
+            loanAmountInput.addEventListener('input', calculateMonthlyPayment);
+            loanDurationInput.addEventListener('input', calculateMonthlyPayment);
+
+            function getInterestRate(loanType) {
+                switch (loanType) {
+                    case 'personnel':
+                        return 0.05;
+                    case 'immobilier':
+                        return 0.03;
+                    case 'auto':
+                        return 0.04;
+                    default:
+                        return 0;
+                }
+            }
+
+            function calculateMonthlyPayment() {
+                const loanAmount = parseFloat(loanAmountInput.value) || 0;
+                const loanDuration = parseFloat(loanDurationInput.value) || 1;
+                const monthlyInterestRate = interestRate / 12;
+                const numberOfPayments = loanDuration * 12;
+
+                if (loanAmount > 0 && loanDuration > 0 && interestRate > 0) {
+                    const monthlyPayment = (loanAmount * monthlyInterestRate) /
+                        (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
+                    monthlyPaymentElement.textContent = monthlyPayment.toFixed(2) + '€';
+                } else {
+                    monthlyPaymentElement.textContent = '0€';
+                }
+            }
+
+            loanForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Empêche la soumission par défaut du formulaire
+
+                if (!selectedLoanType) {
+                    alert('Veuillez sélectionner un type de prêt avant de valider la demande.');
+                    return;
+                }
+
+                const loanDetails = {
+                    selectedLoanType,
+                    loanAmount: loanAmountInput.value,
+                    loanDuration: loanDurationInput.value,
+                    monthlyPayment: monthlyPaymentElement.textContent
+                };
+
+                // Enregistre les informations dans le localStorage
+                localStorage.setItem('loanDetails', JSON.stringify(loanDetails));
+
+                // Redirige vers la troisième page (récapitulatif)
+                window.location.href = 'recapitulatif.html';
+            });
+        });
+    </script>
+</body>
+</html>

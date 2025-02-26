@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TORI - Contactez-nous</title>
+    <!-- Liens vers les fichiers CSS externes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        /* Votre CSS existant */
+        body {
+            font-family: Arial, sans-serif;
+            padding-top: 60px; /* Pour compenser l'en-tête fixe */
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #222;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff !important;
+        }
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #007bff !important;
+        }
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .contact-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #007bff;
+        }
+        .contact-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .contact-card h3 {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.8rem;
+        }
+        .contact-card p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        .contact-card strong {
+            color: #007bff;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .contact-form textarea {
+            height: 150px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+        .icon-large {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+        .map-container {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+        @media (max-width: 768px) {
+            .contact-title {
+                font-size: 2rem;
+            }
+            .contact-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre de menu fixe -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">RAIFFEISEN BANK</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="acceuil.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Tableau de bord</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section de contact -->
+    <main>
+        <div class="contact-container">
+            <h1 class="contact-title">Contactez-nous</h1>
+            <div class="contact-card">
+                <i class="fas fa-envelope icon-large"></i>
+                <h3>Formulaire de contact</h3>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                    <input type="email" id="email" name="email" placeholder="Votre email" required>
+                    <input type="text" id="subject" name="subject" placeholder="Sujet" required>
+                    <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+                    <button type="submit" class="cta-button" id="sendButton">Envoyer</button>
+                </form>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-phone icon-large"></i>
+                <h3>Informations de contact</h3>
+                <p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
+                <p><strong>Email :</strong> volkerwisseloh@gmail.com</p> <!-- Email mis à jour ici -->
+                <p><strong>Adresse :</strong> 123 Rue de la Banque, 75001 Paris, France</p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt icon-large"></i>
+                <h3>Localisation</h3>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937595!2d2.292292615674389!3d48.858370079287475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1633018226788!5m2!1sfr!2sfr"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Empêche la soumission par défaut du formulaire
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+
+                // Crée l'URL mailto: avec les données du formulaire
+                const mailtoUrl = `mailto:volkerwisseloh@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nom: ${name}\nEmail: ${email}\nMessage: ${message}`)}`;
+
+                // Ouvre le client de messagerie par défaut
+                window.location.href = mailtoUrl;
+
+                // Affiche un message de succès
+                alert('Votre message a été envoyé avec succès !');
+
+                // Réinitialise le formulaire
+                contactForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
