@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TORI - Tableau de bord</title>
+    <title>TORI - Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            padding-top: 60px; /* Pour compenser l'en-tête fixe */
+            padding-top: 60px; /* Um den festen Header auszugleichen */
             background-color: #f8f9fa;
         }
         .navbar {
@@ -106,7 +106,7 @@
     </style>
 </head>
 <body>
-    <!-- Barre de menu fixe -->
+    <!-- Feste Navigationsleiste -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">RAIFFEISEN BANK</a>
@@ -115,39 +115,39 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Tableau de bord</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Startseite</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Kontakt</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Section du tableau de bord -->
+    <!-- Dashboard-Bereich -->
     <main>
         <div class="dashboard-container">
-            <h1 class="dashboard-title">Tableau de bord</h1>
+            <h1 class="dashboard-title">Dashboard</h1>
             <div class="dashboard-card">
-                <div class="status-badge"><i class="fas fa-check-circle"></i> Prêt approuvé</div>
+                <div class="status-badge"><i class="fas fa-check-circle"></i> Kredit genehmigt</div>
                 <i class="fas fa-hand-holding-usd icon-large"></i>
-                <h3>Votre prêt approuvé</h3>
-                <p><strong>Montant du prêt :</strong> <span id="approvedLoanAmount"></span> €</p>
-                <p><strong>Mensualité estimée :</strong> <span id="approvedMonthlyPayment"></span> €</p>
-                <p>Pour lancer le retrait, veuillez contacter votre banquier.</p>
-                <!-- Bouton "Contacter mon banquier" mis à jour -->
-                <button class="cta-button" onclick="contactBanquier()">Contacter mon banquier</button>
+                <h3>Ihr genehmigter Kredit</h3>
+                <p><strong>Kreditbetrag:</strong> <span id="approvedLoanAmount"></span> €</p>
+                <p><strong>Geschätzte Monatsrate:</strong> <span id="approvedMonthlyPayment"></span> €</p>
+                <p>Um die Auszahlung zu veranlassen, kontaktieren Sie bitte Ihren Bankberater.</p>
+                <!-- Aktualisierter Button "Meinen Bankberater kontaktieren" -->
+                <button class="cta-button" onclick="contactBanquier()">Meinen Bankberater kontaktieren</button>
             </div>
             <div class="dashboard-card">
                 <i class="fas fa-history icon-large"></i>
-                <h3>Historique des transactions</h3>
-                <p>Aucune transaction récente.</p>
+                <h3>Transaktionsverlauf</h3>
+                <p>Keine aktuellen Transaktionen.</p>
             </div>
             <div class="dashboard-card">
                 <i class="fas fa-user-circle icon-large"></i>
-                <h3>Informations du compte</h3>
-                <p><strong>Nom :</strong> <span id="dashboardLastName"></span></p>
-                <p><strong>Prénom(s) :</strong> <span id="dashboardFirstName"></span></p>
-                <p><strong>Email :</strong> <span id="dashboardEmail"></span></p>
+                <h3>Kontoinformationen</h3>
+                <p><strong>Nachname:</strong> <span id="dashboardLastName"></span></p>
+                <p><strong>Vorname(n):</strong> <span id="dashboardFirstName"></span></p>
+                <p><strong>E-Mail:</strong> <span id="dashboardEmail"></span></p>
             </div>
         </div>
     </main>
@@ -159,30 +159,30 @@
             const personalInfo = JSON.parse(localStorage.getItem('personalInfo'));
 
             if (loanDetails && personalInfo) {
-                // Affiche les informations du prêt approuvé
+                // Zeigt die Informationen des genehmigten Kredits an
                 document.getElementById('approvedLoanAmount').textContent = loanDetails.loanAmount;
                 document.getElementById('approvedMonthlyPayment').textContent = loanDetails.monthlyPayment;
 
-                // Affiche les informations personnelles
+                // Zeigt die persönlichen Informationen an
                 document.getElementById('dashboardLastName').textContent = personalInfo.lastName;
                 document.getElementById('dashboardFirstName').textContent = personalInfo.firstName;
                 document.getElementById('dashboardEmail').textContent = personalInfo.email;
             } else {
-                alert('Aucune information trouvée. Veuillez revenir à la page de demande de prêt.');
+                alert('Keine Informationen gefunden. Bitte kehren Sie zur Kreditantragsseite zurück.');
                 window.location.href = 'demande-pret.html';
             }
         });
 
-        // Fonction pour ouvrir Gmail avec l'email du banquier
+        // Funktion zum Öffnen von Gmail mit der E-Mail des Bankberaters
         function contactBanquier() {
-            const email = "volkerwisseloh@gmail.com"; // Remplacez par l'email de votre banquier
-            const subject = "Demande de contact concernant mon prêt"; // Sujet pré-rempli
-            const body = `Bonjour,\n\nJe souhaite vous contacter concernant mon prêt approuvé.\n\nMontant du prêt : ${document.getElementById('approvedLoanAmount').textContent} €\nMensualité estimée : ${document.getElementById('approvedMonthlyPayment').textContent} €\n\nCordialement,\n${document.getElementById('dashboardFirstName').textContent} ${document.getElementById('dashboardLastName').textContent}`;
+            const email = "volkerwisseloh@gmail.com"; // Ersetzen Sie dies durch die E-Mail Ihres Bankberaters
+            const subject = "Anfrage zur Kontaktaufnahme bezüglich meines Kredits"; // Vorausgefüllter Betreff
+            const body = `Sehr geehrter Herr/Frau,\n\nich möchte Sie bezüglich meines genehmigten Kredits kontaktieren.\n\nKreditbetrag: ${document.getElementById('approvedLoanAmount').textContent} €\nGeschätzte Monatsrate: ${document.getElementById('approvedMonthlyPayment').textContent} €\n\nMit freundlichen Grüßen,\n${document.getElementById('dashboardFirstName').textContent} ${document.getElementById('dashboardLastName').textContent}`;
 
-            // Crée l'URL mailto:
+            // Erstellt die mailto:-URL
             const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-            // Ouvre le client de messagerie par défaut
+            // Öffnet den Standard-E-Mail-Client
             window.location.href = mailtoUrl;
         }
     </script>

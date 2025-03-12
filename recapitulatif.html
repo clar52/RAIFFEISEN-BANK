@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAIFFEISEN BANK - Récapitulatif de votre demande de prêt</title>
+    <title>RAIFFEISEN BANK - Zusammenfassung Ihres Kreditantrags</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            padding-top: 60px; /* Pour compenser l'en-tête fixe */
+            padding-top: 60px; /* Um den festen Header auszugleichen */
             background-color: #f8f9fa;
         }
         .navbar {
@@ -115,7 +115,7 @@
     </style>
 </head>
 <body>
-    <!-- Barre de menu fixe -->
+    <!-- Feste Navigationsleiste -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">RAIFFEISEN BANK</a>
@@ -124,48 +124,48 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Suivi de prêt</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Startseite</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Kreditverfolgung</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Kontakt</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Section du récapitulatif -->
+    <!-- Zusammenfassungsbereich -->
     <main>
         <div class="container my-5">
-            <h1 class="text-center mb-4">Récapitulatif de votre demande de prêt</h1>
+            <h1 class="text-center mb-4">Zusammenfassung Ihres Kreditantrags</h1>
             <div class="summary-container">
-                <h3><i class="fas fa-user-circle"></i> Informations personnelles</h3>
-                <p><strong>Nom :</strong> <span id="summaryLastName"></span></p>
-                <p><strong>Prénom(s) :</strong> <span id="summaryFirstName"></span></p>
-                <p><strong>Date de naissance :</strong> <span id="summaryBirthDate"></span></p>
-                <p><strong>Lieu de naissance :</strong> <span id="summaryBirthPlace"></span></p>
-                <p><strong>Adresse :</strong> <span id="summaryAddress"></span></p>
-                <p><strong>Situation familiale :</strong> <span id="summaryFamilySituation"></span></p>
-                <p><strong>Nombre d'enfants :</strong> <span id="summaryChildrenNumber"></span></p>
-                <p><strong>Numéro de téléphone :</strong> <span id="summaryPhoneNumber"></span></p>
-                <p><strong>Email :</strong> <span id="summaryEmail"></span></p>
-                <p><strong>Situation professionnelle :</strong> <span id="summaryProfessionalSituation"></span></p>
-                <p><strong>Revenus mensuels :</strong> <span id="summaryMonthlyIncome"></span> €</p>
-                <p><strong>Type de contrat :</strong> <span id="summaryContractType"></span></p>
-                <h3><i class="fas fa-hand-holding-usd"></i> Détails du prêt</h3>
-                <p><strong>Type de prêt :</strong> <span id="summaryLoanType"></span></p>
-                <p><strong>Montant du prêt :</strong> <span id="summaryLoanAmount"></span> €</p>
-                <p><strong>Durée du prêt :</strong> <span id="summaryLoanDuration"></span> ans</p>
-                <p><strong>Mensualité estimée :</strong> <span id="summaryMonthlyPayment"></span> €</p>
+                <h3><i class="fas fa-user-circle"></i> Persönliche Informationen</h3>
+                <p><strong>Nachname:</strong> <span id="summaryLastName"></span></p>
+                <p><strong>Vorname(n):</strong> <span id="summaryFirstName"></span></p>
+                <p><strong>Geburtsdatum:</strong> <span id="summaryBirthDate"></span></p>
+                <p><strong>Geburtsort:</strong> <span id="summaryBirthPlace"></span></p>
+                <p><strong>Adresse:</strong> <span id="summaryAddress"></span></p>
+                <p><strong>Familienstand:</strong> <span id="summaryFamilySituation"></span></p>
+                <p><strong>Anzahl der Kinder:</strong> <span id="summaryChildrenNumber"></span></p>
+                <p><strong>Telefonnummer:</strong> <span id="summaryPhoneNumber"></span></p>
+                <p><strong>E-Mail:</strong> <span id="summaryEmail"></span></p>
+                <p><strong>Berufliche Situation:</strong> <span id="summaryProfessionalSituation"></span></p>
+                <p><strong>Monatliches Einkommen:</strong> <span id="summaryMonthlyIncome"></span> €</p>
+                <p><strong>Vertragsart:</strong> <span id="summaryContractType"></span></p>
+                <h3><i class="fas fa-hand-holding-usd"></i> Kreditdetails</h3>
+                <p><strong>Kreditart:</strong> <span id="summaryLoanType"></span></p>
+                <p><strong>Kreditbetrag:</strong> <span id="summaryLoanAmount"></span> €</p>
+                <p><strong>Kreditlaufzeit:</strong> <span id="summaryLoanDuration"></span> Jahre</p>
+                <p><strong>Geschätzte Monatsrate:</strong> <span id="summaryMonthlyPayment"></span> €</p>
             </div>
             <div class="progress-bar">
                 <div class="progress-bar-fill" id="progressBarFill"></div>
             </div>
             <div class="verification-step active" id="step1">
-                <p><i class="fas fa-envelope"></i> Un code de vérification a été envoyé à votre adresse e-mail. Veuillez l'entrer ci-dessous.</p>
-                <input type="text" id="verificationCode1" placeholder="Code de vérification">
-                <button onclick="verifyCode()">Valider</button>
+                <p><i class="fas fa-envelope"></i> Ein Bestätigungscode wurde an Ihre E-Mail-Adresse gesendet. Bitte geben Sie ihn unten ein.</p>
+                <input type="text" id="verificationCode1" placeholder="Bestätigungscode">
+                <button onclick="verifyCode()">Bestätigen</button>
             </div>
             <div class="verification-step" id="step2">
-                <p><i class="fas fa-check-circle"></i> Votre demande est presque finalisée. Veuillez contacter votre banquier pour achever la procédure.</p>
+                <p><i class="fas fa-check-circle"></i> Ihr Antrag ist fast fertiggestellt. Bitte kontaktieren Sie Ihren Bankberater, um den Vorgang abzuschließen.</p>
             </div>
         </div>
     </main>
@@ -173,47 +173,47 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Récupère les informations depuis le localStorage
+            // Holt die Informationen aus dem localStorage
             const personalInfo = JSON.parse(localStorage.getItem('personalInfo'));
             const loanDetails = JSON.parse(localStorage.getItem('loanDetails'));
 
-            // Affiche les données dans la console pour déboguer
-            console.log('Informations personnelles :', personalInfo);
-            console.log('Détails du prêt :', loanDetails);
+            // Zeigt die Daten in der Konsole zur Fehlerbehebung an
+            console.log('Persönliche Informationen:', personalInfo);
+            console.log('Kreditdetails:', loanDetails);
 
             if (personalInfo && loanDetails) {
-                // Affiche les informations personnelles
-                document.getElementById('summaryLastName').textContent = personalInfo.lastName || 'Non renseigné';
-                document.getElementById('summaryFirstName').textContent = personalInfo.firstName || 'Non renseigné';
-                document.getElementById('summaryBirthDate').textContent = personalInfo.birthDate || 'Non renseigné';
-                document.getElementById('summaryBirthPlace').textContent = personalInfo.birthPlace || 'Non renseigné';
-                document.getElementById('summaryAddress').textContent = personalInfo.address || 'Non renseigné';
-                document.getElementById('summaryFamilySituation').textContent = personalInfo.familySituation || 'Non renseigné';
-                document.getElementById('summaryChildrenNumber').textContent = personalInfo.childrenNumber || 'Non renseigné';
-                document.getElementById('summaryPhoneNumber').textContent = personalInfo.phoneNumber || 'Non renseigné';
-                document.getElementById('summaryEmail').textContent = personalInfo.email || 'Non renseigné';
-                document.getElementById('summaryProfessionalSituation').textContent = personalInfo.professionalSituation || 'Non renseigné';
-                document.getElementById('summaryMonthlyIncome').textContent = personalInfo.monthlyIncome || 'Non renseigné';
-                document.getElementById('summaryContractType').textContent = personalInfo.contractType || 'Non renseigné';
+                // Zeigt die persönlichen Informationen an
+                document.getElementById('summaryLastName').textContent = personalInfo.lastName || 'Nicht angegeben';
+                document.getElementById('summaryFirstName').textContent = personalInfo.firstName || 'Nicht angegeben';
+                document.getElementById('summaryBirthDate').textContent = personalInfo.birthDate || 'Nicht angegeben';
+                document.getElementById('summaryBirthPlace').textContent = personalInfo.birthPlace || 'Nicht angegeben';
+                document.getElementById('summaryAddress').textContent = personalInfo.address || 'Nicht angegeben';
+                document.getElementById('summaryFamilySituation').textContent = personalInfo.familySituation || 'Nicht angegeben';
+                document.getElementById('summaryChildrenNumber').textContent = personalInfo.childrenNumber || 'Nicht angegeben';
+                document.getElementById('summaryPhoneNumber').textContent = personalInfo.phoneNumber || 'Nicht angegeben';
+                document.getElementById('summaryEmail').textContent = personalInfo.email || 'Nicht angegeben';
+                document.getElementById('summaryProfessionalSituation').textContent = personalInfo.professionalSituation || 'Nicht angegeben';
+                document.getElementById('summaryMonthlyIncome').textContent = personalInfo.monthlyIncome || 'Nicht angegeben';
+                document.getElementById('summaryContractType').textContent = personalInfo.contractType || 'Nicht angegeben';
 
-                // Affiche les détails du prêt
-                document.getElementById('summaryLoanType').textContent = loanDetails.selectedLoanType || 'Non renseigné';
-                document.getElementById('summaryLoanAmount').textContent = loanDetails.loanAmount || 'Non renseigné';
-                document.getElementById('summaryLoanDuration').textContent = loanDetails.loanDuration || 'Non renseigné';
-                document.getElementById('summaryMonthlyPayment').textContent = loanDetails.monthlyPayment || 'Non renseigné';
+                // Zeigt die Kreditdetails an
+                document.getElementById('summaryLoanType').textContent = loanDetails.selectedLoanType || 'Nicht angegeben';
+                document.getElementById('summaryLoanAmount').textContent = loanDetails.loanAmount || 'Nicht angegeben';
+                document.getElementById('summaryLoanDuration').textContent = loanDetails.loanDuration || 'Nicht angegeben';
+                document.getElementById('summaryMonthlyPayment').textContent = loanDetails.monthlyPayment || 'Nicht angegeben';
 
-                // Génère un code de vérification dynamique
+                // Generiert einen dynamischen Bestätigungscode
                 const verificationCode = generateVerificationCode();
-                localStorage.setItem('verificationCode', verificationCode); // Stocke le code dans le localStorage
+                localStorage.setItem('verificationCode', verificationCode); // Speichert den Code im localStorage
 
-                // Envoie le code par e-mail
+                // Sendet den Code per E-Mail
                 if (personalInfo.email) {
                     sendVerificationEmail(personalInfo.email, verificationCode);
                 } else {
-                    console.error('Aucune adresse e-mail trouvée dans les informations personnelles.');
+                    console.error('Keine E-Mail-Adresse in den persönlichen Informationen gefunden.');
                 }
             } else {
-                alert('Aucune information trouvée. Veuillez revenir à la page de demande de prêt.');
+                alert('Keine Informationen gefunden. Bitte kehren Sie zur Kreditantragsseite zurück.');
                 window.location.href = 'demande-pret.html';
             }
         });
@@ -221,27 +221,27 @@
         let currentStep = 1;
         const progressBarFill = document.getElementById('progressBarFill');
 
-        // Fonction pour générer un code de vérification à 6 chiffres
+        // Funktion zur Generierung eines 6-stelligen Bestätigungscodes
         function generateVerificationCode() {
-            return Math.floor(100000 + Math.random() * 900000); // Code à 6 chiffres
+            return Math.floor(100000 + Math.random() * 900000); // 6-stelliger Code
         }
 
-        // Fonction pour envoyer le code par e-mail avec EmailJS
+        // Funktion zum Senden des Codes per E-Mail mit EmailJS
         function sendVerificationEmail(email, code) {
             const templateParams = {
                 to_email: email,
                 verification_code: code,
             };
 
-            emailjs.send('service_nfdccvq', 'template_r8j6lui', templateParams) // Remplace par ton Service ID et Template ID
+            emailjs.send('service_nfdccvq', 'template_r8j6lui', templateParams) // Ersetze durch deine Service-ID und Template-ID
                 .then(function(response) {
-                    console.log('E-mail envoyé avec succès !', response.status, response.text);
+                    console.log('E-Mail erfolgreich gesendet!', response.status, response.text);
                 }, function(error) {
-                    console.error('Erreur lors de l\'envoi de l\'e-mail :', error);
+                    console.error('Fehler beim Senden der E-Mail:', error);
                 });
         }
 
-        // Fonction pour vérifier le code saisi par le client
+        // Funktion zur Überprüfung des vom Kunden eingegebenen Codes
         function verifyCode() {
             const codeInput = document.getElementById('verificationCode1');
             const storedCode = localStorage.getItem('verificationCode');
@@ -252,19 +252,19 @@
                 document.getElementById('step2').classList.add('active');
                 currentStep = 2;
 
-                // Redirige vers le tableau de bord après la validation
+                // Weiterleitung zum Dashboard nach der Bestätigung
                 setTimeout(() => {
                     window.location.href = 'dashboard.html';
-                }, 2000); // Redirection après 2 secondes
+                }, 2000); // Weiterleitung nach 2 Sekunden
             } else {
-                alert('Code de vérification incorrect. Veuillez réessayer.');
+                alert('Ungültiger Bestätigungscode. Bitte versuchen Sie es erneut.');
             }
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-        // Initialise EmailJS avec ton User ID
-        emailjs.init('2XTPUo_wZfxbpkDvm'); // Remplace par ton User ID
+        // Initialisiert EmailJS mit deiner User-ID
+        emailjs.init('2XTPUo_wZfxbpkDvm'); // Ersetze durch deine User-ID
     </script>
 </body>
 </html>
